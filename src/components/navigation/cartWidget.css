@@ -1,0 +1,8 @@
+.widgetContainer {
+    display: flex;
+    flex-direction: row;
+    color: lightgray;
+    gap: 10px;
+    padding-left: 15px;
+    margin-top: 7px;
+}
