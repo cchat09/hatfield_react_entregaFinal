@@ -1,6 +1,7 @@
 import React from 'react';
 import products from '../../data/products';
 import './itemListContainer.css'
+import { FormLabel } from 'react-bootstrap';
 
 function ItemListContainer () {
     return (
@@ -12,6 +13,11 @@ function ItemListContainer () {
             <h6>Countries: {product.countries.join(', ')}</h6>
             <p>{product.shortDescription}</p>
             <p>Price: ${product.price}</p>
+            <div className:productSelectContainer>
+              <p>Number of travelers</p>
+              <input type:text />
+              <button className='addToCartButton'>Add to cart</button>
+            </div>
           </div>
         ))}
       </div>  
