@@ -2,16 +2,15 @@ import React from "react";
 import FilterByContinent from '../../data/FilterByContinent';
 import ProductBox from '../main/productBoxes';
 import products from "../../data/products";
-import Header from "../main/header";
 
-const EuropeFilter = () => {
-  const europeProducts = FilterByContinent(products, 'Europe');
+const ContinentFilter = ({ continent }) => {
+  const filteredProducts = FilterByContinent(products, continent);
 
   return (
     <>
-      <h1 className="header"><b>Triad Travel:</b> Europe</h1>
+      <h1 className="header"><b>Triad Travel:</b> {continent}</h1>
       <div className="productBoxContainer">
-        {europeProducts.map(product => (
+        {filteredProducts.map(product => (
           <ProductBox key={product.id} product={product} />
         ))}
       </div>
@@ -19,4 +18,4 @@ const EuropeFilter = () => {
   );
 }
 
-export default EuropeFilter;
+export default ContinentFilter;

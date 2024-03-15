@@ -33,13 +33,13 @@ function MyNavbar() {
               <NavDropdown.Item href="#action5">Oceania</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Travel goals" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Culture and history</NavDropdown.Item>
+              <NavDropdown.Item href="/culture">Culture and history</NavDropdown.Item>
+              {/* <NavDropdown.Divider />
+              <NavDropdown.Item href="#action4">Adventure</NavDropdown.Item> */}
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action4">Adventure</NavDropdown.Item>
+              <NavDropdown.Item href="/romantic">Romantic getaways</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">Romantic getaways</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">Seasonal delights</NavDropdown.Item>
+              <NavDropdown.Item href="/seasonal">Seasonal delights</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="/gourmet">Gourmet</NavDropdown.Item>
             </NavDropdown>

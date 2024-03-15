@@ -6,14 +6,8 @@ import Header from './components/main/header.js';
 import './style/style.css'
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import ProductDetail from './components/main/productDetails.jsx';
-import EuropeFilter from './components/navigation/FilterEurope.jsx'
-import AsiaFilter from './components/navigation/FilterAsia.jsx';
-import AmericasFilter from './components/navigation/FilterAmericas.jsx';
-import AfricaFilter from './components/navigation/FilterAfrica.jsx';
-import GourmetFilter from './components/navigation/FilterGourmet.jsx';
-import SeasonalFilter from './components/navigation/FilterSeasonal.jsx';
-import CultureFilter from './components/navigation/FilterCulture.jsx';
-import RomanticFilter from './components/navigation/FilterRomantic.jsx';
+import ContinentFilter from './components/navigation/ContinentFilter.jsx';
+import TypeFilter from './components/navigation/TypeFilter.jsx';
 
 function App() {
   return (
@@ -22,14 +16,14 @@ function App() {
       <MyNavbar />
       <Routes>
         <Route path="/" element={<ItemListContainer />} />
-        <Route path="/europe" element={<EuropeFilter />} />
-        <Route path="/asia" element={<AsiaFilter />} />
-        <Route path="/americas" element={<AmericasFilter />} />
-        <Route path="/africa" element={<AfricaFilter />} />
-        <Route path="/gourmet" element={<GourmetFilter />} />
-        <Route path="/culture" element={<CultureFilter />} />
-        <Route path="/seasonal" element={<SeasonalFilter />} />
-        <Route path="/romantic" element={<RomanticFilter />} />
+        <Route path="/europe" element={<ContinentFilter continent="Europe" />} />
+        <Route path="/asia" element={<ContinentFilter continent="Asia" />} />
+        <Route path="/americas" element={<ContinentFilter continent="Americas" />} />
+        <Route path="/africa" element={<ContinentFilter continent="Africa" />} />
+        <Route path="/gourmet" element={<TypeFilter type="gourmet"/>} />
+        <Route path="/seasonal" element={<TypeFilter type="seasonal"/>} />
+        <Route path="/romantic" element={<TypeFilter type="romantic"/>} />
+        <Route path="/culture" element={<TypeFilter type="culture and history"/>} />
         <Route path="/products/:productId" element={<ProductDetail />} />
       </Routes>
     </BrowserRouter>
