@@ -11,7 +11,7 @@ function MyNavbar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
       <Container fluid>
-        <Navbar.Brand href="#">Tridad Travel</Navbar.Brand>
+        <Navbar.Brand href="/">Tridad Travel</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -19,16 +19,16 @@ function MyNavbar() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#action2">About us</Nav.Link>
             <NavDropdown title="Destinations" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Europe</NavDropdown.Item>
+              <NavDropdown.Item href="/europe">Europe</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action4">Asia</NavDropdown.Item>
+              <NavDropdown.Item href="/asia">Asia</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">The Americas</NavDropdown.Item>
+              <NavDropdown.Item href="/americas">The Americas</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">Africa</NavDropdown.Item>
+              <NavDropdown.Item href="/africa">Africa</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5">Oceania</NavDropdown.Item>
             </NavDropdown>
@@ -41,7 +41,7 @@ function MyNavbar() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5">Seasonal delights</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">Gourmet</NavDropdown.Item>
+              <NavDropdown.Item href="/gourmet">Gourmet</NavDropdown.Item>
             </NavDropdown>
             <CartWidget />
           </Nav>

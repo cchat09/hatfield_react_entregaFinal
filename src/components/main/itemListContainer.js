@@ -1,28 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import products from '../../data/products';
-import './itemListContainer.css'
-import { FormLabel } from 'react-bootstrap';
+import './itemListContainer.css';
+import ProductBox from './productBoxes';
+import Header from './header';
 
-function ItemListContainer () {
-    return (
-        <div className="productBoxContainer">
-        {products.map(product => (
-          <div key={product.id} className="productBox">
-            <h2>{product.name}</h2>
-            <img src={product.image} alt="Kyoto" />
-            <h6>Countries: {product.countries.join(', ')}</h6>
-            <p>{product.shortDescription}</p>
-            <p>Price: ${product.price}</p>
-            <div className:productSelectContainer>
-              <p>Number of travelers</p>
-              <input type:text />
-              <button className='addToCartButton'>Add to cart</button>
-            </div>
-          </div>
-        ))}
-      </div>  
-    );
+function ItemListContainer() {
+  const [loading, setLoading] = useState(true); // Loading state for product data
+
+  useEffect(() => {
+    // Simulate fetching product data
+    const fetchData = () => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(); // Resolve immediately, since we're using static data
+        }, 2000);
+      });
+    };
+
+    fetchData().then(() => {
+      setLoading(false); // Set loading to false when data is fetched
+    });
+  }, []);
+
+  return (
+    <>
+      <Header />
+      <div className="productBoxContainer">
+        {loading ? (
+          <h3>Loading journeys...</h3>
+        ) : (
+          products.map((product) => (
+            <ProductBox key={product.id} product={product} />
+          ))
+        )}
+      </div>
+    </>
+  );
 }
-
 
 export default ItemListContainer;
