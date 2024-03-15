@@ -2,7 +2,6 @@
 import './App.css';
 import MyNavbar from './components/navigation/navbar.js';
 import ItemListContainer from './components/main/itemListContainer.js';
-import Header from './components/main/header.js';
 import './style/style.css'
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import ProductDetail from './components/main/productDetails.jsx';
