@@ -34,8 +34,8 @@ function MyNavbar() {
             </NavDropdown>
             <NavDropdown title="Travel goals" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/culture">Culture and history</NavDropdown.Item>
-              {/* <NavDropdown.Divider />
-              <NavDropdown.Item href="#action4">Adventure</NavDropdown.Item> */}
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="/active">Active</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="/romantic">Romantic getaways</NavDropdown.Item>
               <NavDropdown.Divider />

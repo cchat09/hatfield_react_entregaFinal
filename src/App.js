@@ -23,6 +23,7 @@ function App() {
         <Route path="/seasonal" element={<TypeFilter type="seasonal"/>} />
         <Route path="/romantic" element={<TypeFilter type="romantic"/>} />
         <Route path="/culture" element={<TypeFilter type="culture and history"/>} />
+        <Route path="/active" element={<TypeFilter type="active"/>} />
         <Route path="/products/:productId" element={<ProductDetail />} />
       </Routes>
     </BrowserRouter>
