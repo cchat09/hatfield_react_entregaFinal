@@ -6,11 +6,18 @@ import "./checkout.css"
 import Swal from 'sweetalert2';
 import { Link } from "react-router-dom";
 
-const CheckoutPage = ({ product }) => {
+const CheckoutPage = () => {
   // Access cart data and functions using the useCart hook
   const { cart, removeFromCart, clearCart, updateCart } = useCart();
   const [totalPrice, setTotalPrice] = useState(0);
 
+ const payPopup = () => {
+  Swal.fire({
+    title: "Just kidding!",
+    text: "You can't really purchase, because this is just a Javascript project!",
+    icon: "error"
+  });
+ }
   // Function to handle removal of an item from the cart
   const handleRemoveFromCart = (itemId) => {
     removeFromCart(itemId);
@@ -102,7 +109,7 @@ useEffect(() => {
       <h4>Your total: ${totalPrice}</h4>
       <div className="checkoutFooter">
         <Button variant="danger" onClick={handleClearCart}>Clear Cart</Button>
-        <Button variant="info">Proceed to Payment</Button>
+        <Button variant="info" onClick={() => payPopup()}>Proceed to Payment</Button>
       </div>
     </div>
   );

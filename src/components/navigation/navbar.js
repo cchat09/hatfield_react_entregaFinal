@@ -23,26 +23,26 @@ function MyNavbar() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#action2">About us</Nav.Link>
             <NavDropdown title="Destinations" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/europe">Europe</NavDropdown.Item>
+              <NavDropdown.Item href="/continent/4">Europe</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/asia">Asia</NavDropdown.Item>
+              <NavDropdown.Item href="/continent/3">Asia</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/americas">The Americas</NavDropdown.Item>
+              <NavDropdown.Item href="/continent/2">The Americas</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/africa">Africa</NavDropdown.Item>
+              <NavDropdown.Item href="/continent/1">Africa</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/oceania">Oceania</NavDropdown.Item>
+              <NavDropdown.Item href="/continent/5">Oceania</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Travel goals" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/culture">Culture and history</NavDropdown.Item>
+              <NavDropdown.Item href="/type/1">Culture and history</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/active">Active</NavDropdown.Item>
+              <NavDropdown.Item href="/type/2">Active</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/romantic">Romantic getaways</NavDropdown.Item>
+              <NavDropdown.Item href="/type/3">Romantic getaways</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/seasonal">Seasonal delights</NavDropdown.Item>
+              <NavDropdown.Item href="/type/4">Seasonal delights</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/gourmet">Gourmet</NavDropdown.Item>
+              <NavDropdown.Item href="/type/5">Gourmet</NavDropdown.Item>
             </NavDropdown>
             <CartWidget />
             <Nav.Link href="/checkout">View cart</Nav.Link>
