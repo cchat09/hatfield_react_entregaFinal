@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import CartWidget from './cartWidget.js';
+import SearchFilter from '../../data/SearchFilters.jsx';
 
 function MyNavbar() {
   return (
@@ -30,7 +31,7 @@ function MyNavbar() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="/africa">Africa</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">Oceania</NavDropdown.Item>
+              <NavDropdown.Item href="/oceania">Oceania</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Travel goals" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/culture">Culture and history</NavDropdown.Item>
@@ -44,13 +45,16 @@ function MyNavbar() {
               <NavDropdown.Item href="/gourmet">Gourmet</NavDropdown.Item>
             </NavDropdown>
             <CartWidget />
+            <Nav.Link href="/checkout">View cart</Nav.Link>
           </Nav>
           <Form className="d-flex">
+            {/* <SearchFilter /> */}
             <Form.Control
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              id="search"
             />
             <Button variant="outline-success">Search</Button>
           </Form>

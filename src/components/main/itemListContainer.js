@@ -1,25 +1,74 @@
+// import React, { useState, useEffect } from 'react';
+// import products from '../../data/products';
+// import './itemListContainer.css';
+// import ProductBox from './productBoxes';
+// import Header from './header';
+
+// function ItemListContainer() {
+//   const [loading, setLoading] = useState(true); 
+
+//   useEffect(() => {
+//     const fetchData = () => {
+//       return new Promise((resolve) => {
+//         setTimeout(() => {
+//           resolve(); 
+//         }, 2000);
+//       });
+//     };
+
+//     fetchData().then(() => {
+//       setLoading(false); 
+//     });
+//   }, []);
+
+//   return (
+//     <>
+//       <Header />
+//       <div className="productBoxContainer">
+//         {loading ? (
+//           <h3>Loading journeys...</h3>
+//         ) : (
+//           products.map((product) => (
+//             <ProductBox key={product.id} product={product} />
+//           ))
+//         )}
+//       </div>
+//     </>
+//   );
+// }
+
+// export default ItemListContainer;
+
 import React, { useState, useEffect } from 'react';
-import products from '../../data/products';
 import './itemListContainer.css';
 import ProductBox from './productBoxes';
 import Header from './header';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 function ItemListContainer() {
-  const [loading, setLoading] = useState(true); // Loading state for product data
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate fetching product data
-    const fetchData = () => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(); // Resolve immediately, since we're using static data
-        }, 2000);
-      });
+    const fetchData = async () => {
+      const db = getFirestore();
+      const productsCollection = collection(db, 'products');
+
+      try {
+        const querySnapshot = await getDocs(productsCollection);
+        const fetchedProducts = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setProducts(fetchedProducts);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      } finally {
+        setLoading(false);
+      }
     };
 
-    fetchData().then(() => {
-      setLoading(false); // Set loading to false when data is fetched
-    });
+    fetchData();
   }, []);
 
   return (
@@ -29,7 +78,7 @@ function ItemListContainer() {
         {loading ? (
           <h3>Loading journeys...</h3>
         ) : (
-          products.map((product) => (
+          products.map(product => (
             <ProductBox key={product.id} product={product} />
           ))
         )}

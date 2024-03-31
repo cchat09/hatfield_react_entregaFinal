@@ -15,3 +15,30 @@
     margin: auto;
     margin-bottom: 3%;
 }
+
+.quantityButton {
+    background-color: rgb(52, 52, 61);
+    color: white;
+    height: 40px;
+    margin-right: 29px;
+    border-radius: 7px;
+    margin-top: 3px;
+    padding-left: 5px;
+}
+
+.detailOverview {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    gap: 30px;
+}
+
+.inCartMessage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    padding: 20px;
+    border-radius: 30px;
+}

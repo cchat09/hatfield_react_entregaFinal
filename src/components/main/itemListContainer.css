@@ -20,3 +20,8 @@
     width: 350px;
     margin-bottom: 65px;
 }
+
+.shortDescriptionBox {
+    height: 90px;
+    overflow: scroll;
+}
