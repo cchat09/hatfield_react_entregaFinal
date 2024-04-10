@@ -1,54 +1,12 @@
-// import React, { useState, useEffect } from 'react';
-// import products from '../../data/products';
-// import './itemListContainer.css';
-// import ProductBox from './productBoxes';
-// import Header from './header';
-
-// function ItemListContainer() {
-//   const [loading, setLoading] = useState(true); 
-
-//   useEffect(() => {
-//     const fetchData = () => {
-//       return new Promise((resolve) => {
-//         setTimeout(() => {
-//           resolve(); 
-//         }, 2000);
-//       });
-//     };
-
-//     fetchData().then(() => {
-//       setLoading(false); 
-//     });
-//   }, []);
-
-//   return (
-//     <>
-//       <Header />
-//       <div className="productBoxContainer">
-//         {loading ? (
-//           <h3>Loading journeys...</h3>
-//         ) : (
-//           products.map((product) => (
-//             <ProductBox key={product.id} product={product} />
-//           ))
-//         )}
-//       </div>
-//     </>
-//   );
-// }
-
-// export default ItemListContainer;
-
 import React, { useState, useEffect } from 'react';
 import './itemListContainer.css';
 import ProductBox from './productBoxes';
 import Header from './header';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
-function ItemListContainer() {
+function ItemListContainer () {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const fetchData = async () => {
       const db = getFirestore();
@@ -88,6 +46,7 @@ function ItemListContainer() {
       </div>
     </>
   );
+  
 }
 
 export default ItemListContainer;

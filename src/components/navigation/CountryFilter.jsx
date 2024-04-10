@@ -1,42 +1,48 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { useParams } from "react-router-dom";
 import ProductBox from '../main/productBoxes';
 
-const TypeFilter = () => {
-  const { type } = useParams();
+const CountryFilter = () => {
+  const { countries } = useParams();
+  const lowercaseCountry = countries?.toLowerCase();
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const typeNames = {
-    1: "Culture and history",
-    2: "Active and adventure",
-    3: "Romantic getaways",
-    4: "Seasonal (beach, ski, etc.)",
-    5: "Gourmet"
-  }
 
   useEffect(() => {
     const fetchData = async () => {
       const db = getFirestore();
       const productsCollection = collection(db, "products");
-
+    
+      console.log(countries);
       try {
         const querySnapshot = await getDocs(productsCollection);
         const fetchedProducts = querySnapshot.docs
         .map(doc => ({ id: doc.id, ...doc.data() }))
-        .filter(product => product.types.includes(parseInt(type))); // Filter by type
+        .filter(product => product.countries.some(country => country.toLowerCase() === lowercaseCountry));  // Filter by type
       setFilteredProducts(fetchedProducts);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
     };
 
-    fetchData();
-  }, [type]);
-  console.log(filteredProducts);
+    if (countries) {
+        fetchData();
+    }
+  }, [lowercaseCountry, countries]);
+  
+  const titleCaseCountry = countries
+  ?.split("_")
+  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(" ")
+  .replace(/\b\w/g, firstChar => firstChar.toUpperCase());
+
+  if (!countries) {
+    alert ("no match found!");
+  }
 
 return (
   <>
-    <h1 className="header"><b>Triad Travel:</b> {typeNames[type]}</h1>
+    <h1 className="header"><b>Triad Travel:</b> {titleCaseCountry}</h1>
     <div className="productBoxContainer">
       {filteredProducts.map(product => (
         <ProductBox key={product.id} product={product} />
@@ -46,4 +52,4 @@ return (
 );
 }
 
-  export default TypeFilter;
+  export default CountryFilter;

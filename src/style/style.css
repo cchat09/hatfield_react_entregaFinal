@@ -7,3 +7,7 @@ body {
     width: 100vw;
     height: auto;
 }
+
+.swal2-popup, .swal2-title, .swal2-content {
+    color: black !important; /* Prevent color change */
+  }

@@ -9,6 +9,8 @@ import ContinentFilter from './components/navigation/ContinentFilter.jsx';
 import TypeFilter from './components/navigation/TypeFilter.jsx';
 import { CartProvider } from './context/cartContext.jsx';
 import CheckoutPage from './components/pages/Checkout.jsx';
+import CityFilter from './components/navigation/CityFilter.jsx';
+import CountryFilter from './components/navigation/CountryFilter.jsx';
 
 function App() {
   return (
@@ -18,13 +20,11 @@ function App() {
           <MyNavbar />
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
-            <Route path="/gourmet" element={<TypeFilter type="gourmet" />} />
-            <Route path="/seasonal" element={<TypeFilter type="seasonal" />} />
-            <Route path="/romantic" element={<TypeFilter type="romantic" />} />
-            <Route path="/culture" element={<TypeFilter type="culture and history" />} />
-            <Route path="/active" element={<TypeFilter type="active" />} />
             <Route path="/products/:productId" element={<ProductDetail />} />
             <Route path="/continent/:continent" element={<ContinentFilter />} />
+            <Route path="/type/:type" element={<TypeFilter />} />
+            <Route path="/city/:cities" element={<CityFilter />} />
+            <Route path="/country/:countries" element={<CountryFilter />} />
             <Route path="/checkout" element={<CheckoutPage />} />
           </Routes>
         </BrowserRouter>
