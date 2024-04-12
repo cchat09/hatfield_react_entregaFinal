@@ -21,7 +21,6 @@ function MyNavbar() {
             navbarScroll
           >
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#action2">About us</Nav.Link>
             <NavDropdown title="Destinations" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/continent/4">Europe</NavDropdown.Item>
               <NavDropdown.Divider />

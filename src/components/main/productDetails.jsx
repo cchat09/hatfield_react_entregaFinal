@@ -168,6 +168,40 @@ const ProductDetail = () => {
     }
   };
 
+  const getContinentName = (number) => {
+    switch (number) {
+      case 1:
+        return "Africa";
+      case 2:
+        return "The Americas";
+      case 3:
+        return "Asia";
+      case 4:
+        return "Europe";
+      case 5:
+        return "Oceania";
+      default:
+        return "Unknown Continent";
+    }
+  };
+  
+  const getTypeName = (number) => {
+    switch (number) {
+      case 1:
+        return "Culture";
+      case 2:
+        return "Adventure";
+      case 3:
+        return "Romantic";
+      case 4:
+        return "Seasonal";
+      case 5:
+        return "Gourmet";
+      default:
+        return "Unknown Type";
+    }
+  };
+
   return (
     <>
       {product && (
@@ -193,7 +227,7 @@ const ProductDetail = () => {
             </select>
             <Button variant="info" onClick={handleClick}>Add to cart</Button>
           </div>
-          <h6>Tags: {product.continent}, {product.types.join(', ')}</h6>
+          <h6>Tags: {getContinentName(product.continent)}, {product.types.map(type => getTypeName(type)).join(', ')}</h6>
         </div>
       )}
       {/* Conditional rendering of reminder message */}

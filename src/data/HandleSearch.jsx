@@ -89,72 +89,8 @@ const HandleSearch = () => {
             return;
         }
 
-        // Search by city
-        // const products = await fetchProductsFromFirestore();
-        // const cityMatch = products.find(product => {
-        //     const searchTermWords = searchTermLowercase.split(" ");
-        //     return product.cities.some(city => {
-        //         const cityWords = city.toLowerCase().split(" ");
-        //         return searchTermWords.every(word => cityWords.includes(word));
-        //     });
-        // });
-
-        // if (cityMatch) {
-        //     // Check if the matched city contains all the search terms
-        //     const containsAllSearchTerms = searchTermWords.every(word =>
-        //         cityMatch.cities.some(city => city.toLowerCase().includes(word))
-        //     );
-
-        //     if (containsAllSearchTerms) {
-        //         // Navigate to city if all search terms are found in the city name
-        //         alert(`City match found: ${cityMatch.name}`);
-        //         navigate(`/city/${encodeURIComponent(searchTerm)}`);
-        //         return;
-        //     } else {
-        //         // Navigate to country if it's not a city match
-        //         alert("No city match found. Redirecting to country.");
-        //         navigate(`/country/${encodeURIComponent(searchTerm)}`);
-        //         return;
-        //     }
-        // } else {
-        //     // Handle non-city matches
-        //     alert("No match found!");
-        //     // Optionally navigate to a different page or handle as needed
-        //     return;
-        // }
-
-        const products = await fetchProductsFromFirestore();
-        const cityMatch = products.find(product => {
-            const searchTermWords = searchTerm.toLowerCase().split(" ");
-            return product.cities.some(city => {
-                const cityWords = city.toLowerCase().split(" ");
-                // Check if all search terms are included in the city name
-                return searchTermWords.every(word => cityWords.includes(word));
-            });
-        });
-
-        if (cityMatch) {
-            navigate(`/city/${encodeURIComponent(searchTerm)}`);
-            return;
-        }
-
-        // const products = await fetchProductsFromFirestore();
-        // const cityMatch = products.find(product => {
-        //     const searchTermWords = searchTermLowercase.split(" ");
-        //     return product.cities.some(city => {
-        //         const cityWords = city.toLowerCase().split(" ");
-        //         return searchTermWords.every(word => cityWords.includes(word));
-        //     });
-        // });
-
-        // if (cityMatch) {
-        //     alert(`City match found: ${cityMatch.name}`); // Assuming the city object has a 'name' property
-        //     navigate(`/city/${encodeURIComponent(searchTerm)}`);
-        //     return;
-        // }
-
-
         // Search by country
+        const products = await fetchProductsFromFirestore();
         const countryMatch = products.find(product => {
             const searchTermWords = searchTerm.toLowerCase().split(" ");
             return product.countries.some(country => {
@@ -169,14 +105,27 @@ const HandleSearch = () => {
             return;
         }
 
-        // const countryMatch = products.find(product => product.countries.includes(searchTermLowercase));
-        // if (countryMatch) {
-        //     navigate(`/country/${encodeURIComponent(searchTerm)}`);
-        //     return;
-        // }
+        // Search by city
+        const cityMatch = products.find(product => {
+            const searchTermWords = searchTerm.toLowerCase().split(" ");
+            return product.cities.some(city => {
+                const cityWords = city.toLowerCase().split(" ");
+                // Check if all search terms are included in the city name
+                return searchTermWords.every(word => cityWords.includes(word));
+            });
+        });
+
+        if (cityMatch) {
+            navigate(`/city/${encodeURIComponent(searchTerm)}`);
+            return;
+        }
 
         // If no match found
-        alert("No match found!");
+        Swal.fire({
+            title: "No results",
+            text: "Careful with spelling - try 'Europe,' 'Kenya,' 'Mexico City,' 'ski,' 'gourmet,' etc.",
+            icon: "error"
+          });
     }
 
     return (
