@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import { Link } from "react-router-dom";
 
 const CheckoutPage = () => {
-  // Access cart data and functions using the useCart hook
+  // Access cart data and functions
   const { cart, removeFromCart, clearCart, updateCart } = useCart();
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -18,12 +18,12 @@ const CheckoutPage = () => {
     icon: "error"
   });
  }
-  // Function to handle removal of an item from the cart
+  // removal of an item
   const handleRemoveFromCart = (itemId) => {
     removeFromCart(itemId);
   };
 
-  // Function to handle clearing the entire cart
+  // clearing the entire cart
   const handleClearCart = () => {
     Swal.fire({
       title: "Are you sure?",
@@ -44,17 +44,15 @@ const CheckoutPage = () => {
     });
   };
 
-  // Function to handle changes in the selected quantity
+  // changes in the selected quantity
 const handleQuantityChange = (event, item) => {
   const newQuantity = parseInt(event.target.value);
-  // Find the item in the cart and update its quantity
   const updatedCart = cart.map((cartItem) => {
     if (cartItem.id === item.id) {
       return { ...cartItem, quantity: newQuantity };
     }
     return cartItem;
   });
-  // Update the cart with the new quantity
   updateCart(updatedCart);
 };
 
@@ -74,9 +72,9 @@ useEffect(() => {
       ) : (
         <ul className="checkoutItemsContainer">
           {cart.map((item) => (
-              <Card style={{ width: '18rem' }}>
+              <Card key={item.id} style={{ width: '18rem' }}>
               <Link to={`/products/${item.id}`}>
-                <Card.Img variant="top" src={item.image} key={item.id}/>
+                <Card.Img variant="top" src={item.image} />
               </Link>
               <Card.Body>
                 <Card.Title>{item.name}</Card.Title>
@@ -94,15 +92,6 @@ useEffect(() => {
                 </div>
               </Card.Body>
             </Card>
-            // <li className="checkoutItem" key={item.id}>
-            //   <div><h3>{item.name}</h3></div>
-            //   <img src={item.image} alt={item.name} style={{ maxWidth: '200px' }} />
-            //   <div className="checkoutItemInfo">
-            //       <div>Quantity: {item.quantity}</div>
-            //       <div>Price: ${item.price}</div>
-            //       <Button variant="danger" onClick={() => handleRemoveFromCart(item.id)}>Remove</Button>
-            //   </div>
-            // </li>
           ))}
         </ul>
       )}

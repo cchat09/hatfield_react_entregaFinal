@@ -18,9 +18,6 @@ function ItemListContainer () {
           id: doc.id,
           ...doc.data()
         }))
-        //POTENTIAL FILTERS
-        // .filter(product => product.price < 2500)
-        // .filter(product => product.continent === 4);
         setProducts(fetchedProducts);
       } catch (error) {
         console.error('Error fetching products:', error);

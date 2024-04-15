@@ -18,7 +18,7 @@ const CityFilter = () => {
         const querySnapshot = await getDocs(productsCollection);
         const fetchedProducts = querySnapshot.docs
         .map(doc => ({ id: doc.id, ...doc.data() }))
-        .filter(product => product.cities.some(city => city.toLowerCase() === lowercaseCity));  // Filter by type
+        .filter(product => product.cities.some(city => city.toLowerCase() === lowercaseCity));
       setFilteredProducts(fetchedProducts);
       } catch (error) {
         console.error("Error fetching products:", error);

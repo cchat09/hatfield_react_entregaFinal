@@ -1,3 +1,5 @@
+// AUTO CREATED README
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +70,34 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+// PROGRAMMER CREATED README
+
+### TRIAD TRAVEL - REACT CLASS ECOMMERCE MODEL
+This project was created using React. I did not use Vite based on some early issues with instalation. 
+
+This project additionally uses:
+- React Router Dom
+- Firebase
+- Bootstrap
+- React Bootstrap
+- Bootstrap icons
+- Sweet Alerts 2
+
+### FILE STRUCTURE
+I attempted to separate out the main function pages as a category, data (this was less needed as I shifted to Firebase data), and pages that were not the item list container or detail into a separate category (currently only checkout related, I would like to add more pages including a login and about me in the future). Note that page-specific CSS style pages are alongside their respective page, while a general style CSS that applies to the full application is in a separate section.
+
+### VISUAL
+I went with a minimalist style that heavily uses existing style from Bootstrap. I have a "dark mode" as the only and default setting. At some point in the future I will make the page design responsive.
+
+### CALL OUTS
+I spent quite a bit of time with the HandleSearch component, allowing users to search a variety of terms to find the best results.
+
+### NEXT STEPS
+While this project is a good example of tools/methods learned in this class, I'd like to improve and add functions before adding to my portfolio:
+- Make page design responsive
+- Add a login feature
+- Add location-based discounts
+- Add country location API
+- Add dates as part of the purchasing process

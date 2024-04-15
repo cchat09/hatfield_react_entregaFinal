@@ -10,7 +10,6 @@
 .checkoutItemInfo, .checkoutFooter {
     display: flex;
     flex-direction: row;
-    /* width: 100vw; */
     margin: auto;
     justify-content: center;
     align-items: center;
@@ -38,7 +37,6 @@
 }
 
 .checkoutItemsContainer img {
-    /* width: 200px;*/
     height: 200px; 
     object-fit: cover;
 }

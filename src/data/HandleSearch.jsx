@@ -10,6 +10,7 @@ const HandleSearch = () => {
     const [showSearchExtension, setShowSearchExtension] = useState(false);
     const searchTermWords = searchTerm.toLowerCase().split(" ");
 
+    //Access Firestore data
     const fetchProductsFromFirestore = async () => {
         const db = getFirestore();
         const productsCollection = collection(db, 'products');

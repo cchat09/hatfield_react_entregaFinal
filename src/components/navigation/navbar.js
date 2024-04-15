@@ -1,10 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Button from 'react-bootstrap/Button';
 import CartWidget from './cartWidget.js';
 import HandleSearch from '../../data/HandleSearch.jsx';
 
@@ -46,18 +44,6 @@ function MyNavbar() {
             <CartWidget />
             <Nav.Link href="/checkout">View cart</Nav.Link>
           </Nav>
-          {/* <Form className="d-flex" onSubmit={handleSubmit}>
-            {/* <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-              id="search"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            /> */}
-            {/* <Button variant="outline-success">Search</Button>
-          </Form> */}
           <HandleSearch />
         </Navbar.Collapse>
       </Container>
